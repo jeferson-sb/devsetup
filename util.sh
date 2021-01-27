@@ -1,8 +1,8 @@
 #!/bin/bash
 
-readonly CLOSE="❌"
-readonly CHECK="✅"
-readonly WARNING="❗"
+readonly CLOSE="✘"
+readonly CHECK="✔"
+readonly WARNING="‼"
 readonly NEXT="➡"
 
 readonly RESET="\e[0m"
@@ -29,13 +29,21 @@ error() {
 }
 
 warn() {
-  log "${YELLO_BOLD}${WARNING}${RESET} $1"
+  log "${YELLOW_BOLD}${WARNING}${RESET} $1"
 }
 
 function install() {
-  if ! command -v $1 &> /dev/null
-    sudo apt install $1 -y
+  if ! command -v "$1" &> /dev/null ;then
+    sudo apt install "$1" -y > /dev/null
   else 
     check "$1 is installed"
+  fi
+}
+
+function check_installation() {
+  if command -v "$1" &> /dev/null ;then
+    check "$1 installed"
+  else 
+    error "Unable to install $1"
   fi
 }
