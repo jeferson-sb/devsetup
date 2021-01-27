@@ -2,7 +2,8 @@
 
 ```
 $ git clone git@github.com:jeferson-sb/devsetup.git
-$ sudo chmod +x setup-dotfiles.sh util.sh setup-ubuntu.sh
+$ cd devsetup
+$ sudo chmod +x install-dotfiles.sh util.sh setup-ubuntu.sh
 ```
 
 ### Install my personal dotfiles and softwares

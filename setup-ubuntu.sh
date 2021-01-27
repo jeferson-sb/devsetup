@@ -22,7 +22,10 @@ check_installation git
 
 # shell
 next "install zsh and zinit"
-install zsh curl
+install \
+  zsh \
+  curl \
+  > /dev/null
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 check_installation zsh

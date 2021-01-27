@@ -13,8 +13,13 @@ sudo -v
 # Install all dotfiles under .dotfiles to the home directory
 for DOTFILE in $(find -H $DOTS -maxdepth 2 -type f)
 do
-  filename = $(basename "${DOTFILE}")
+  filename=$(basename "${DOTFILE}")
   next "copy $filename"
-  ln -s $DOTFILE "~/$filename"
+  if [[ -e "$HOME/$filename" ]]; then
+    mv "$HOME/$filename" "$HOME/$filename.old"
+  fi
+  
+  ln -s $DOTFILE "$HOME/$filename"
+
   check "$filename configured"
 done
