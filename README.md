@@ -1,7 +1,7 @@
 ## Installation
 
 ```
-git clone <repo>
+git clone git@github.com:jeferson-sb/devsetup.git
 ```
 
 ### Install my personal dotfiles

@@ -3,10 +3,6 @@
 DIR=$(dirname $0)
 DISTRO="ubuntu-20.04"
 
-SOFTWARES=(
-  code
-)
-
 source $DIR/util.sh
 
 sudo -v 
