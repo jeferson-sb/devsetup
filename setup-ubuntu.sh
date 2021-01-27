@@ -9,18 +9,28 @@ sudo -v
 
 # update software
 next "update packages"
-sudo apt update \
-sudo apt list --upgradable \
-sudo apt upgrade -y \
+sudo apt update
+sudo apt list --upgradable
+sudo apt upgrade -y
 sudo apt --purge autoremove
 check "${DISTRO} is up-to-date"
 
+# git
+next "install git"
+install git
+check_installation git
+
 # shell
 next "install zsh and zinit"
-install zsh
+install zsh curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 check_installation zsh
+
+# create dotfiles
+next "install dotfiles"
+./install-dotfiles.sh
+check "dotfiles installed"
 
 # version managers
 
@@ -36,16 +46,28 @@ sudo apt-add-repository -y ppa:rael-gc/rvm
 sudo apt update && install rvm
 check_installation rvm
 
-# docker
-next "install docker and docker-compose"
-sudo apt-get remove docker docker-engine docker.io containerd runc
-install docker.io
-sudo usermod -aG docker "$USER"
+next "install node"
+nvm install node
+check_installation node
 
+# docker
+next "install docker"
+sudo apt-get remove docker docker-engine docker.io containerd runc
+install apt-transport-https ca-certificates gnupg-agent software-properties-common 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker "$USER"
+check_installation docker
+
+# docker-compose
+next "install docker-compose"
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-check_installation docker
 check_installation docker-compose
 
 # pip
@@ -56,7 +78,7 @@ install \
   > /dev/null
 check_installation pip3
 
-# create dotfiles
-next "install dotfiles"
-./install-dotfiles.sh
-check "dotfiles installed"
+# yarn
+next "install yarn v1"
+npm install -g yarn
+check_installation yarn
