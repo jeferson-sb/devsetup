@@ -19,8 +19,11 @@
   unstage = reset HEAD --
   undo = checkout --
   rollback = reset --soft HEAD~1
+  po = push -u origin
   me = config user.name
 [commit]
   gpgsign = false
 [init]
   defaultBranch = main
+[include]
+  path = ~/.gitconfig_local
