@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+# wsl only
 alias edge="powershell.exe start msedge"
 alias clip="clip.exe"
 alias open="explorer.exe"
+
 alias py="python3"
 alias update="sudo apt update && sudo apt upgrade -y"

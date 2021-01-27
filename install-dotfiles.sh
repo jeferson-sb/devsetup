@@ -6,11 +6,13 @@ source $DIR/util.sh
 
 readonly DOTS="$HOME/.dotfiles"
 
+[[ ! -d "${DOTS}" ]] && cp -r .dotfiles $HOME
+
 sudo -v
 
 next "copy .gitconfig and .gitmessage"
 ln -s "$DOTS/git/.gitconfig" ~/.gitconfig
-ln -n "$DOTS/git/.gitmessage" ~/.gitmessage
+ln -s "$DOTS/git/.gitmessage" ~/.gitmessage
 check "git configured"
 
 next "copy .vimrc"
