@@ -10,19 +10,11 @@ readonly DOTS="$HOME/.dotfiles"
 
 sudo -v
 
-next "copy .gitconfig and .gitmessage"
-ln -s "$DOTS/git/.gitconfig" ~/.gitconfig
-ln -s "$DOTS/git/.gitmessage" ~/.gitmessage
-check "git configured"
-
-next "copy .vimrc"
-ln -s "$DOTS/vim/.vimrc" ~/.vimrc
-check "vim configured"
-
-next "copy .zshrc"
-ln -s "$DOTS/zsh/.zshrc" ~/.zshrc
-check ".zshrc configured"
-
-next "copy .aliases"
-ln -s "$DOTS/general/.aliases" ~/.aliases
-check ".aliases configured"
+# Install all dotfiles under .dotfiles to the home directory
+for DOTFILE in $(find -H $DOTS -maxdepth 2 -type f)
+do
+  filename = $(basename "${DOTFILE}")
+  next "copy $filename"
+  ln -s $DOTFILE "~/$filename"
+  check "$filename configured"
+done
