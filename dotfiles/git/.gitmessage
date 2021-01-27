@@ -1,0 +1,12 @@
+# ---------------------------------------------------------------------
+#
+# feat        new feature you're adding to a particular application
+# fix         bug fix
+# chore       regular code maintenance
+# style       feature and updates related to styling
+# refactor    refactoring a specific section of the codebase
+# perf        code change that improves performance
+# docs        everything related to documentation
+# test        everything related to testing
+#
+# ---------------------------------------------------------------------

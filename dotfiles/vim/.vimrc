@@ -1,0 +1,9 @@
+:syntax on
+:set number
+:set expandtab
+:set shiftwidth=2
+:set autoindent
+:set tabstop=2
+:set background=dark
+let g:airline_theme='one'
+colorscheme one
