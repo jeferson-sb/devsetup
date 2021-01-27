@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# GPG:
+export GPG_TTY=$(tty)
+
+# Default shell:
+export SHELL=/usr/bin/zsh
+
+# Lang:
+export LANG=C.UTF-8

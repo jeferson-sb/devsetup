@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+pyclean () {
+  # Cleans py[cod] and __pychache__ dirs in the current tree:
+  find . | grep -E "(__pycache__|\.py[cod]$)" | xargs rm -rf
+}
+
+dockerclean() {
+  # Removes all stopped containers, networks, voluems, images and build cache
+  docker system prune --volumes
+}
+
+node_modules_clean() {
+  # Prints how much space is occupying
+  find . -name "node_modules" -type d -prune -print | xargs du -chs
+  # Delete all node_modules found
+  find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;
+}
