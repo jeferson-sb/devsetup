@@ -34,7 +34,7 @@ warn() {
 
 function install() {
   if ! command -v "$1" &> /dev/null ;then
-    sudo apt install "$1" -y > /dev/null
+    sudo apt-get install "$1" -y > /dev/null
   else 
     check "$1 is installed"
   fi
