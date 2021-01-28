@@ -9,7 +9,7 @@ $ sudo chmod +x install-dotfiles.sh util.sh setup-ubuntu.sh
 ### Install my personal dotfiles and softwares
 
 - Git
-- Zsh and oh-my-zsh
+- Zsh, oh-my-zsh and p10k
 - Vim
 - Version Managers: nvm, rvm
 - Docker + docker-compose
