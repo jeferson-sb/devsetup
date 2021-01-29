@@ -29,4 +29,7 @@ do
   check "$filename configured"
 done
 
+# Copy vim theme
+[[ ! -d "$HOME/.vim" ]] && cp -r .vim $HOME
+
 check "Configuration done. You might need to restart your terminal to finish the installation"
