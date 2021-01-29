@@ -20,6 +20,7 @@
   undo = checkout --
   rollback = reset --soft HEAD~1
   po = push -u origin
+  poh = push -u origin HEAD
   me = config user.name
 [commit]
   gpgsign = false

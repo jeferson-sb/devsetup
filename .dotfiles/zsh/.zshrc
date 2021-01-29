@@ -45,3 +45,11 @@ zinit-zsh/z-a-bin-gem-node
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
+
+## Add exports, aliases and functions
+readonly DOTFILES="$HOME/.dotfiles/general"
+
+for file in $DOTFILES/.{exports,aliases,functions}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
