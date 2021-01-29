@@ -18,8 +18,6 @@ do
 
   if [[ -e "$HOME/$filename" ]]; then
     mv "$HOME/$filename" "$HOME/$filename.old"
-  else 
-
   fi
 
   if [[ $DOTFILE =~ "windows" || -L "$HOME/$filename" ]]; then
