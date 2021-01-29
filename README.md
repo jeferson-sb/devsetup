@@ -3,7 +3,7 @@
 ```
 $ git clone git@github.com:jeferson-sb/devsetup.git
 $ cd devsetup
-$ sudo chmod +x install-dotfiles.sh util.sh setup-ubuntu.sh
+$ sudo chmod +x *.sh
 ```
 
 ### Install my personal dotfiles and softwares
@@ -17,18 +17,21 @@ $ sudo chmod +x install-dotfiles.sh util.sh setup-ubuntu.sh
 - Node
 - VSCode: See [https://code.visualstudio.com/docs/editor/settings-sync](https://code.visualstudio.com/docs/editor/settings-sync)
 
-```sh
-$ ./install-dotfiles.sh
-```
-
-### Utility scripts
+### Full Installation
 
 ```sh
-$ ./util.sh
-```
-
-### Run setup for a ubuntu machine
-
-```sh
+# If you're on a ubuntu machine
 $ ./setup-ubuntu.sh
+```
+
+### Install Packages
+
+```sh
+$ ./install_packages.sh
+```
+
+### Install dotfiles
+
+```sh
+$ ./install_dotfiles.sh
 ```
