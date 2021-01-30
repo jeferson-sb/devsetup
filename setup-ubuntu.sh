@@ -1,12 +1,8 @@
 #!/bin/bash
 
 DIR=$(dirname $0)
-DISTRO="ubuntu-20.04"
 
 source $DIR/install_packages.sh
-
-# Update system
-update_all
 
 # Install selected packages from whiptail checklist
 ./install_packages.sh
@@ -19,4 +15,4 @@ if [ $answer != "${answer#[Yy]}" ]; then
   check "dotfiles installed"
 fi
 
-check "$DISTRO is configured :)"
+check "$OS_NAME is configured :)"

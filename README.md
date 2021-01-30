@@ -1,8 +1,9 @@
 ## Installation
 
-```
+```sh
 $ git clone git@github.com:jeferson-sb/devsetup.git
 $ cd devsetup
+$ export OS_NAME="Raspbian GNU/Linux 10 (buster)"
 $ sudo chmod +x *.sh
 ```
 

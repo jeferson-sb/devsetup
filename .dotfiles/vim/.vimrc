@@ -5,5 +5,5 @@
 :set autoindent
 :set tabstop=2
 :set background=dark
-let g:airline_theme='one'
-colorscheme one
+let g:airline_theme='onedark'
+colorscheme onedark

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DIR=$(dirname $0)
-DISTRO="ubuntu-20.04"
 
 source $DIR/util.sh
 
@@ -13,8 +12,11 @@ function update_all() {
   sudo apt list --upgradable
   sudo apt upgrade -y
   sudo apt --purge autoremove
-  check "${DISTRO} is up-to-date"
+  check "${OS_NAME} is up-to-date"
 }
+
+# Update system upfront
+update_all
 
 function install_git() {
   next "install git"
