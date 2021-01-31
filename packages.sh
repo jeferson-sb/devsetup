@@ -94,3 +94,9 @@ function install_dockercompose() {
   sudo chmod +x /usr/local/bin/docker-compose
   check_installation docker-compose
 }
+
+function install_asdf() {
+  next "install asdf"
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+  echo ". $HOME/.asdf/asdf.sh" | sudo tee -a ~/.zshrc
+} 

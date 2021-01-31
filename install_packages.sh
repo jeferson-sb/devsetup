@@ -8,6 +8,7 @@ CHOICES=$(whiptail --title "Softwares" --checklist \
 "Please select which packages you want to install:" 20 78 12 \
 "git" "" ON \
 "vim" "" ON \
+"asdf" "Manage multiple runtime versions" ON \
 "nvm" "Node Version Manager" ON \
 "rvm" "Ruby Version Manager" OFF \
 "node" "" ON \
@@ -21,6 +22,7 @@ CHOICES=$(whiptail --title "Softwares" --checklist \
 for CHOICE in ${CHOICES[@]}; do
   [[ $CHOICE =~ "git" ]] && install_git
   [[ $CHOICE =~ "vim" ]] && install_vim
+  [[ $CHOICE =~ "asdf" ]] && install_asdf
   [[ $CHOICE =~ "nvm" ]] && install_nvm
   [[ $CHOICE =~ "rvm" ]] && install_rvm
   [[ $CHOICE =~ "node" ]] && install_node
