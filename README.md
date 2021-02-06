@@ -3,7 +3,6 @@
 ```sh
 $ git clone git@github.com:jeferson-sb/devsetup.git
 $ cd devsetup
-$ export OS_NAME="Ubuntu 20.04"
 $ sudo chmod +x *.sh
 ```
 

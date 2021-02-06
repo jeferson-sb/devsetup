@@ -15,4 +15,4 @@ if [ $answer != "${answer#[Yy]}" ]; then
   check "dotfiles installed"
 fi
 
-check "$OS_NAME is configured :)"
+check "Your system is successfully configured :)"

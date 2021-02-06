@@ -12,7 +12,7 @@ function update_all() {
   sudo apt list --upgradable
   sudo apt upgrade -y
   sudo apt --purge autoremove
-  check "${OS_NAME} is up-to-date"
+  check "Your system is up-to-date"
 }
 
 # Update system upfront

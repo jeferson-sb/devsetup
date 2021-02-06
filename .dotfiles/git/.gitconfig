@@ -21,7 +21,7 @@
   rollback = reset --soft HEAD~1
   po = push -u origin
   poh = push -u origin HEAD
-  me = config user.name
+  me = !(git config user.name; git config user.email)
 [commit]
   gpgsign = false
 [init]
