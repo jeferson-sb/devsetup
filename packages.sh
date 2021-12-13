@@ -28,7 +28,7 @@ function install_zsh() {
   next "install zsh, zinit and p10k"
   install zsh curl
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  sh -c "$(curl -fsSL https://git.io/zinit-install)"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
   check_installation zsh
 }
