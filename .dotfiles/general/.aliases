@@ -8,3 +8,7 @@ alias open="explorer.exe"
 alias py="python3"
 alias update="sudo apt update && sudo apt upgrade -y"
 alias clean="sudo apt clean && sudo apt-get autoremove -y"
+
+# docker
+alias dockerip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1"
+alias dockerrm="docker rm $(docker ps --all -q -f status=exited)"
