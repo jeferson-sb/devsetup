@@ -39,6 +39,12 @@ function install_vim() {
   check_installation vim
 }
 
+function install_neovim() {
+  next "install neovim"
+  install neovim
+  check_installation vim
+}
+
 function install_nvm() {
   next "install nvm"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
