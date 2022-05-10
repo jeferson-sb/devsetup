@@ -32,14 +32,6 @@ warn() {
   log "${YELLOW_BOLD}${WARNING}${RESET} $1"
 }
 
-function install() {
-  if ! command -v "$1" &> /dev/null ;then
-    sudo apt-get install "$1" -y > /dev/null
-  else 
-    check "$1 is installed"
-  fi
-}
-
 function check_installation() {
   if command -v "$1" &> /dev/null ;then
     check "$1 installed"
