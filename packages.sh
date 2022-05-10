@@ -1,22 +1,6 @@
 #!/bin/bash
 
-DIR=$(dirname $0)
-
-source $DIR/util.sh
-
 sudo -v
-
-function update_all() {
-  next "update packages"
-  sudo apt update
-  sudo apt list --upgradable
-  sudo apt upgrade -y
-  sudo apt --purge autoremove
-  check "Your system is up-to-date"
-}
-
-# Update system upfront
-update_all
 
 function install_git() {
   next "install git"
@@ -47,10 +31,9 @@ function install_neovim() {
 
 function install_nvm() {
   next "install nvm"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-  export NVM_DIR="$HOME/.nvm" 
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
   check_installation nvm
 }
 
@@ -64,7 +47,7 @@ function install_rvm() {
 
 function install_node() {
   next "install node (lts)"
-  nvm install node --lts
+  nvm install --lts
   check_installation node
 }
 
@@ -81,7 +64,13 @@ function install_pip3() {
   check_installation pip3
 }
 
-function install_docker() {
+function install_commandline_utils() {
+  next "install curl, exa, bat, tldr"
+  install curl exa bat tlrd
+  for command in curl exa bat tlrd; do check_installation $command; done
+}
+
+function install_docker_apt() {
   next "install docker"
   sudo apt-get remove docker docker-engine docker.io containerd runc
   install apt-transport-https ca-certificates gnupg-agent software-properties-common 
@@ -94,15 +83,32 @@ function install_docker() {
   check_installation docker
 }
 
-function install_dockercompose() {
+function install_dockercompose_curl() {
   next "install docker-compose"
   sudo curl -L "https://github.com/docker/compose/releases/download/1.28.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
   check_installation docker-compose
 }
 
-function install_asdf() {
+function install_docker_others() {
+  next "install docker and docker-compose"
+  install docker docker-compose
+  sudo systemctl start docker.service
+  sudo systemctl enable docker.service
+  sudo groupadd docker
+  sudo usermod -aG docker $(whoami)
+  check_installation docker
+  check_installation docker-compose
+}
+
+function install_asdf_git() {
   next "install asdf"
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
   echo ". $HOME/.asdf/asdf.sh" | sudo tee -a ~/.zshrc
 } 
+
+function install_asdf_pacman() {
+  next "install asdf"
+  git clone https://aur.archlinux.org/asdf-vm.git && cd asdf-vm && makepkg -si
+  echo ". /opt/asdf-vm/asdf.sh" | sudo tee -a ~/.zshrc
+}
