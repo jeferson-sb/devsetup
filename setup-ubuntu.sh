@@ -1,11 +1,21 @@
 #!/bin/bash
+source $PWD/util.sh
+source $PWD/install_packages.sh
 
-DIR=$(dirname $0)
+function update_all() {
+  next "update packages"
+  sudo apt update
+  sudo apt list --upgradable
+  sudo apt upgrade -y
+  sudo apt --purge autoremove
+  check "Your system is up-to-date"
+}
 
-source $DIR/install_packages.sh
+# Update system upfront
+update_all
 
 # Install selected packages from whiptail checklist
-./install_packages.sh
+install_chosen_packages
 
 # Dotfiles
 read -p "Do you want to install all of the dotfiles? (y/n) " answer
