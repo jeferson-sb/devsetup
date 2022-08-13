@@ -22,7 +22,7 @@ function install_chosen_packages() {
 
   for CHOICE in ${CHOICES[@]}; do
     [[ $CHOICE =~ "git" ]] && install_git
-    [[ $CHOICE =~ "vim" ]] && install_vim
+    [[ $CHOICE =~ "vim" ]] && install_neovim && install_lunarvim
     [[ $CHOICE =~ "command-utils" ]] && install_commandline_utils
     [[ $CHOICE =~ "asdf" ]] && install_asdf_git
     [[ $CHOICE =~ "asdf(pacman)" ]] && install_asdf_pacman

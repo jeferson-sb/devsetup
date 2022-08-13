@@ -26,7 +26,14 @@ function install_vim() {
 function install_neovim() {
   next "install neovim"
   install neovim
-  check_installation vim
+  check_installation nvim
+}
+
+function install_lunarvim() {
+  next "install lunar vim"
+  warn "prerequisites: you need to have neovim >= 0.7"
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
+  check_installation lvim
 }
 
 function install_nvm() {
