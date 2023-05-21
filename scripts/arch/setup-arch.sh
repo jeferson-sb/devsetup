@@ -7,6 +7,9 @@ function update_all() {
   check "Your system is up-to-date"
 }
 
+# Essentials
+sudo pacman -S --needed base-devel rust libffi libyaml openssl zlib
+
 # System update
 update_all
 
