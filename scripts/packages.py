@@ -1,9 +1,5 @@
 import subprocess
-from os_install import install_package_command
-
-
-def shell_run(command):
-    subprocess.run(command, shell=True, check=True)
+from os_install import install_package_command, shell_run, is_installed
 
 
 def git():
@@ -51,6 +47,21 @@ def asdf_pacman():
     shell_run(
         'git clone https://aur.archlinux.org/asdf-vm.git && cd asdf-vm && makepkg -si')
     shell_run('echo ". /opt/asdf-vm/asdf.sh" | sudo tee -a ~/.zshrc')
+
+
+def programming_languages():
+    if is_installed('asdf'):
+        shell_run('''
+          asdf plugin-add elixir
+          && asdf plugin-add erlang
+          && asdf plugin-add lua
+          && asdf plugin-add nodejs
+          && asdf plugin-add python
+          && asdf plugin-add ruby
+          && asdf plugin-add rust
+        ''')
+    else:
+        print("❌ asdf is not installed!")
 
 
 def homebrew():
