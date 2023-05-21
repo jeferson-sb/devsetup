@@ -3,35 +3,31 @@
 ```sh
 $ git clone git@github.com:jeferson-sb/devsetup.git
 $ cd devsetup
-$ sudo chmod +x *.sh
+$ sudo chmod -R +x *.sh
 ```
 
-### Install my personal dotfiles and softwares
-
-- Git
-- Zsh, oh-my-zsh and p10k
-- Vim
-- Version Managers: nvm, rvm
-- Docker + docker-compose
-- pip3, yarn
-- Node
-- VSCode: See [https://code.visualstudio.com/docs/editor/settings-sync](https://code.visualstudio.com/docs/editor/settings-sync)
-
-### Full Installation
+### Dotfiles
 
 ```sh
-# If you're on a ubuntu machine
-$ ./setup-ubuntu.sh
+make dotfiles
 ```
 
-### Install Packages
+### Apps (manjaro)
 
 ```sh
-$ ./install_packages.sh
+make install-apps/arch
 ```
 
-### Install dotfiles
+### Install packages
+
+This will install development tools, zsh, languages, and much more.
 
 ```sh
-$ ./install_dotfiles.sh
+make install/ubuntu
+```
+
+or
+
+```sh
+make install/arch
 ```
