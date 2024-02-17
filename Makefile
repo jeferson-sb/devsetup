@@ -3,7 +3,7 @@
 .DEFAULT_GOAL := help
 
 owner := "Jeferson"
-version := "2.0.0"
+version := "2.1.0"
 username := $(USER)
 
 about:
@@ -13,6 +13,8 @@ install/ubuntu:
 	./scripts/ubuntu/setup-ubuntu.sh
 install/arch:
 	./scripts/arch/setup-arch.sh
+install/fedora:
+	./scripts/fedora/setup-fedora.sh
 install-apps/arch:
 	./scripts/arch/install_apps.sh
 dotfiles:

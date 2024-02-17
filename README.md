@@ -31,3 +31,9 @@ or
 ```sh
 make install/arch
 ```
+
+or
+
+```sh
+make install/fedora
+```
