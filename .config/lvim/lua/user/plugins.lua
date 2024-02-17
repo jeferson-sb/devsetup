@@ -3,8 +3,7 @@
 lvim.plugins = {
   -- Colorschemes
   { "folke/tokyonight.nvim" },
-  { "lunarvim/colorschemes" },
-  { "sainnhe/sonokai" },
+  { "jeferson-sb/amethyst" },
   -- Diagnostics
   {
     "folke/trouble.nvim",
