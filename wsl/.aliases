@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# WSL
+alias edge="powershell.exe start msedge"
+alias clip="clip.exe"
+alias open="explorer.exe"

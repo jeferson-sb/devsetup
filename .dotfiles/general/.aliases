@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-# wsl only
-alias edge="powershell.exe start msedge"
-alias clip="clip.exe"
-alias open="explorer.exe"
-
 alias py="python3"
-alias update="sudo apt update && sudo apt upgrade -y"
-alias clean="sudo apt clean && sudo apt-get autoremove -y"
+
+# uncomment if installed
+# alias ls=exa
+# alias cat=bat
 
 # docker
-alias dockerip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1"
-alias dockerrm="docker rm $(docker ps --all -q -f status=exited)"
+# alias dockerip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1"
+# alias dockerrm="docker rm $(docker ps --all -q -f status=exited)"
