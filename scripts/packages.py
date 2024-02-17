@@ -27,6 +27,7 @@ def lunarvim():
 
 def pnpm():
     shell_run("curl -fsSL https://get.pnpm.io/install.sh | sh -")
+    shell_run('echo "export PNPM_HOME=$HOME/.local/share/pnpm" | sudo tee -a ~/.zshenv')
 
 
 def rust_utils():
@@ -71,5 +72,5 @@ def homebrew():
         '[ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)')
 
 
-def example():
-    shell_run("echo 'hello world'")
+def others():
+    shell_run(install_package_command('btop earlyoom'))
