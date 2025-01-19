@@ -17,6 +17,8 @@ install/macos:
 	./scripts/macos/setup-macos.sh
 install/fedora:
 	./scripts/fedora/setup-fedora.sh
+install/macos:
+	./scripts/macos/setup-macos.sh
 install-apps/arch:
 	./scripts/arch/install_apps.sh
 dotfiles:

@@ -35,5 +35,11 @@ make install/arch
 or
 
 ```sh
+make install/macos
+```
+
+or
+
+```sh
 make install/fedora
 ```
