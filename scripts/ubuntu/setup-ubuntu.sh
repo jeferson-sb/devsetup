@@ -11,8 +11,10 @@ function update_all() {
 }
 
 # Essentials
-sudo apt install build-essential
-sudo apt install python3-venv
+next "install base packages"
+mapfile -t base_packages < <(grep -vE '^\s*(#|$)' "$PWD/scripts/ubuntu/base.packages")
+sudo apt install -y "${base_packages[@]}"
+check "Base packages installed"
 
 # Update system upfront
 update_all
@@ -23,7 +25,7 @@ source env/bin/activate
 pip3 install beaupy
 
 # Install selected packages
-python3 $PWD/install_packages.py
+python3 $PWD/scripts/install_packages.py
 
 check "Your system is successfully configured :)"
 

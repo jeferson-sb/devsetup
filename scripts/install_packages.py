@@ -29,9 +29,21 @@ def init() -> any:
 
     packages_chosen = prompt_options(packages_list)
 
+    failed = []
     for package in packages_chosen:
         call_install = getattr(packages, package)
-        call_install()
+        try:
+            call_install()
+            console.print(f"[green]✔ {package} installed[/green]")
+        except Exception as e:
+            console.print(f"[red]✘ {package} failed: {e}[/red]")
+            failed.append(package)
+
+    if failed:
+        console.print(
+            f"\n[yellow]Finished with failures:[/yellow] {', '.join(failed)}")
+    else:
+        console.print("\n[green]All selected packages installed successfully.[/green]")
 
 
 if __name__ == '__main__':

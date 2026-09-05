@@ -1,0 +1,11 @@
+# Homebrew formulae always installed on macOS.
+coreutils
+curl
+git
+gpg
+gawk
+watchman
+cocoapods
+gh
+zsh-autosuggestions
+zsh-syntax-highlighting

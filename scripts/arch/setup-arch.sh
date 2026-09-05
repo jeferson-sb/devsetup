@@ -8,7 +8,10 @@ function update_all() {
 }
 
 # Essentials
-sudo pacman -S --needed --noconfirm base-devel rust libffi libyaml openssl zlib
+next "install base packages"
+mapfile -t base_packages < <(grep -vE '^\s*(#|$)' "$PWD/scripts/arch/base.packages")
+sudo pacman -S --needed --noconfirm "${base_packages[@]}"
+check "Base packages installed"
 
 # System update
 update_all

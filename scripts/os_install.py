@@ -1,3 +1,4 @@
+import os
 import platform
 import re
 import subprocess
@@ -23,4 +24,17 @@ def is_installed(pckg):
     code = subprocess.run(
         f"command -v {pckg} &> /dev/null", shell=True).returncode
 
-    return bool(code)
+    return code == 0
+
+
+def append_line_once(line, path):
+    """Append `line` to the file at `path` unless it's already there."""
+    path = os.path.expanduser(path)
+
+    if os.path.exists(path):
+        with open(path) as f:
+            if line in f.read():
+                return
+
+    with open(path, 'a') as f:
+        f.write(line + '\n')

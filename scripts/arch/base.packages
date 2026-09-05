@@ -1,0 +1,7 @@
+# Essentials always installed on Arch, regardless of interactive selection.
+base-devel
+rust
+libffi
+libyaml
+openssl
+zlib

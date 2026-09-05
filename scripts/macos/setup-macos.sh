@@ -5,7 +5,6 @@ function install_homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-# Essentials
 install_homebrew
 
 # Update packages
@@ -14,18 +13,13 @@ brew update
 check "Your system is up-to-date"
 
 # Essentials
-brew install coreutils curl git
-brew install gpg gawk
+next "install base packages"
+mapfile -t base_formulae < <(grep -vE '^\s*(#|$)' "$PWD/scripts/macos/base.packages")
+brew install "${base_formulae[@]}"
 
-# Apps
-brew install watchman
-brew install cocoapods
-brew install gh
-brew install powerlevel10k
-brew install zsh-autosuggestions
-brew install zsh-syntax-highlighting
-brew install --cask google-chrome
-brew install --cask iterm2
+mapfile -t base_casks < <(grep -vE '^\s*(#|$)' "$PWD/scripts/macos/base-casks.packages")
+brew install --cask "${base_casks[@]}"
+check "Base packages installed"
 
 # Xcode
 xcode-select --install

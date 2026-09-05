@@ -1,0 +1,3 @@
+# Essentials always installed on Ubuntu, regardless of interactive selection.
+build-essential
+python3-venv
