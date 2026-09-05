@@ -21,8 +21,10 @@ def shell_run(command):
 
 
 def is_installed(pckg):
+    # `> /dev/null 2>&1` (not bash-only `&>`) since shell=True runs /bin/sh,
+    # which is dash (not bash) on Debian/Ubuntu.
     code = subprocess.run(
-        f"command -v {pckg} &> /dev/null", shell=True).returncode
+        f"command -v {pckg} > /dev/null 2>&1", shell=True).returncode
 
     return code == 0
 

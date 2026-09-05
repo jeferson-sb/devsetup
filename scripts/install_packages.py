@@ -13,7 +13,9 @@ console = Console()
 def list_functions(module):
     function_names = []
     for name, item in getmembers(module):
-        if isfunction(item) and not name.startswith('_'):
+        # item.__module__ excludes helpers merely imported into `module`
+        # (e.g. shell_run, is_installed) from the installable package list.
+        if isfunction(item) and not name.startswith('_') and item.__module__ == module.__name__:
             function_names.append(name)
     return function_names
 

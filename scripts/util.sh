@@ -32,6 +32,10 @@ warn() {
   log "${YELLOW_BOLD}${WARNING}${RESET} $1"
 }
 
+read_package_list() {
+  grep -vE '^\s*(#|$)' "$1"
+}
+
 function check_installation() {
   if command -v "$1" &> /dev/null ;then
     check "$1 installed"

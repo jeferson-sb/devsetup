@@ -12,7 +12,7 @@ function update_all() {
 
 # Essentials
 next "install base packages"
-mapfile -t base_packages < <(grep -vE '^\s*(#|$)' "$PWD/scripts/ubuntu/base.packages")
+mapfile -t base_packages < <(read_package_list "$PWD/scripts/ubuntu/base.packages")
 sudo apt install -y "${base_packages[@]}"
 check "Base packages installed"
 

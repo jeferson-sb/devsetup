@@ -9,7 +9,7 @@ function update_all() {
 
 # Essentials
 next "install base packages"
-mapfile -t base_packages < <(grep -vE '^\s*(#|$)' "$PWD/scripts/arch/base.packages")
+mapfile -t base_packages < <(read_package_list "$PWD/scripts/arch/base.packages")
 sudo pacman -S --needed --noconfirm "${base_packages[@]}"
 check "Base packages installed"
 
