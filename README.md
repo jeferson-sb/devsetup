@@ -1,3 +1,7 @@
+> [!WARNING]
+> This setup will be update likely soon! To include agents config and make everything smoother.
+
+
 ## Installation
 
 ```sh
