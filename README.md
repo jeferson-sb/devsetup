@@ -1,5 +1,5 @@
 > [!WARNING]
-> This setup will be update likely soon! To include agents config and make everything smoother.
+> This setup will be updated likely soon! To include agents config and make everything smoother.
 
 
 ## Installation
